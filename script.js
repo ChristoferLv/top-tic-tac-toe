@@ -1,5 +1,3 @@
-console.log("script");
-
 const BoardRenderer = (() => {
     const renderBoard = (boardArr, inputReceiver) => {
         const gameBoard = document.querySelector(".game-board");
@@ -12,23 +10,22 @@ const BoardRenderer = (() => {
             gameBoard.append(gameTile);
         }
     }
-    return { renderBoard };
+
+    const clearBoard = () => {
+        const gameBoard = document.querySelector(".game-board");
+        gameBoard.innerText = '';
+    }
+    return { renderBoard, clearBoard };
 })();
 
 
 const Game = ((boardRenderer) => {
-    const player1NameInput = document.querySelector("#player1")
-    const player2NameInput = document.querySelector("#player2")
+
 
     const gameBoard = createGameBoard();
     const gameManager = createGameManager();
+    const ui = createUiManager();
 
-    const startButton = document.querySelector("#start-btn");
-    startButton.addEventListener("click", gameManager.startGame);
-    const clearButton = document.querySelector("#clear-btn");
-    clearButton.addEventListener("click", gameManager.clearGame);
-    const gameBoardContainer = document.querySelector(".game-board");
-    const winnerP = document.querySelector(".winner");
 
     let gameRunning = false;
 
@@ -38,49 +35,91 @@ const Game = ((boardRenderer) => {
     let players = null
     currentPlayer = 0;
 
-    
-    function createGameManager() {
-        const startGame = () => {
+    function createUiManager() {
+        const player1NameInput = document.querySelector("#player1");
+        const player2NameInput = document.querySelector("#player2");
+        const startButton = document.querySelector("#start-btn");
+        startButton.addEventListener("click", gameManager.startGame);
+        const clearButton = document.querySelector("#clear-btn");
+        clearButton.addEventListener("click", gameManager.clearGame);
+        const gameBoardContainer = document.querySelector(".game-board");
+        const winnerP = document.querySelector(".winner");
+
+        const tie = () => {
+            winnerP.innerText = "O jogo empatou!";
+            winnerP.classList.remove("hidden");
+        }
+
+        const showWinner = (winnerName) => {
+            winnerP.innerText = "Round vencido por  " + winnerName;
+            winnerP.classList.remove("hidden");
+        }
+
+        const clearUi = () => {
+            gameBoardContainer.classList.add("hidden");
+            gameBoardContainer.innerText = '';
+            winnerP.classList.add("hidden");
+            startButton.removeAttribute("disabled");
+            clearButton.classList.add("hidden");
+        }
+
+        const startUi = () => {
+            gameBoardContainer.classList.remove("hidden");
+            clearButton.classList.remove("hidden");
+            startButton.setAttribute("disabled", "");
+        }
+
+        const getPlayerNames = () => {
             if (player1NameInput.value == "" || player2NameInput.value == "") {
                 alert("Digite os nomes dos jogadores");
                 return;
             }
+            return [player1NameInput.value, player2NameInput.value];
+        }
+
+
+        return { showWinner, clearUi, getPlayerNames, startUi, tie };
+    }
+
+    function createGameManager() {
+        const startGame = () => {
+
             boardRenderer.renderBoard(gameBoard.getGameBoard(), inputReceiver);
-            player1 = createPlayer(player1NameInput.value, "X");
-            player2 = createPlayer(player2NameInput.value, "O");
+            const playerNames = ui.getPlayerNames();
+            if (playerNames == null) return;
+            player1 = createPlayer(playerNames[0], "X");
+            player2 = createPlayer(playerNames[1], "O");
             players = [player1, player2];
-            gameBoardContainer.classList.remove("hidden");
-            clearButton.classList.remove("hidden");
-            startButton.setAttribute("disabled", "");
+            ui.startUi();
             gameRunning = true;
         }
 
         const clearGame = () => {
-            gameBoardContainer.classList.add("hidden");
-            gameBoardContainer.innerText = '';
             player1 = null;
             player2 = null;
             players = [null, null];
             gameRunning = false;
-            winnerP.classList.add("hidden");
-            startButton.removeAttribute("disabled");
-            clearButton.classList.add("hidden");
-            gameBoard.clearBoard();
             currentPlayer = 0;
+            gameBoard.clearBoard();
+            ui.clearUi();
         }
 
         const receiveInput = (input) => {
             if (!gameRunning) return;
             const marked = gameBoard.markPosition(input, players[currentPlayer].getMarker());
             if (!marked) return;
+            boardRenderer.renderBoard(gameBoard.getGameBoard(), inputReceiver);
             const result = checkWin(gameBoard.getGameBoard());
+            if (result == "tie") {
+                ui.tie();
+                gameRunning = false;
+                return;
+            }
             if (result) {
-                winnerP.innerText = "Round vencido por  " + players[currentPlayer].getName();
-                winnerP.classList.remove("hidden");
+                ui.showWinner(players[currentPlayer].getName());
                 gameRunning = false;
             }
             currentPlayer = (currentPlayer + 1) % 2;
-            boardRenderer.renderBoard(gameBoard.getGameBoard(), inputReceiver);
         }
         return { startGame, receiveInput, clearGame };
     }
