@@ -20,12 +20,9 @@ const BoardRenderer = (() => {
 
 
 const Game = ((boardRenderer) => {
-
-
     const gameBoard = createGameBoard();
     const gameManager = createGameManager();
     const ui = createUiManager();
-
 
     let gameRunning = false;
 
@@ -77,13 +74,11 @@ const Game = ((boardRenderer) => {
             return [player1NameInput.value, player2NameInput.value];
         }
 
-
         return { showWinner, clearUi, getPlayerNames, startUi, tie };
     }
 
     function createGameManager() {
         const startGame = () => {
-
             boardRenderer.renderBoard(gameBoard.getGameBoard(), inputReceiver);
             const playerNames = ui.getPlayerNames();
             if (playerNames == null) return;
@@ -184,7 +179,6 @@ const Game = ((boardRenderer) => {
         }
 
         const getGameBoard = () => { return arr };
-
         return { markPosition, getGameBoard, clearBoard };
     }
 
