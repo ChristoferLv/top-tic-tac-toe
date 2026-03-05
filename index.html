@@ -9,9 +9,19 @@
 </head>
 
 <body>
-    <p class="winner hidden"></p>
-    <div class="game-board">
+    <div>
+    <label for="player1">Digite o nick do player 1 (X)</label>
+    <input id="player1" type="text" placeholder="Player 1">
     </div>
+    <div>
+        <label for="player2">Digite o nick do player 2 (O)</label>
+        <input id="player2" type="text" placeholder="Player 2">
+    </div>
+    <input id="start-btn" type="button" value="Começar">
+    <input id="clear-btn" class="hidden" type="button" value="Limpar">
+    <p class="winner hidden">Result</p>
+    <div class="game-board hidden"></div>
+
     <script src="script.js"></script>
 </body>
 

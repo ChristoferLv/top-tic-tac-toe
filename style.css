@@ -6,7 +6,7 @@
     width: fit-content;
     height: fit-content;
     margin: 0 auto;
-    margin-top: 40vh;
+    margin-top: 30vh;
 }
 
 .tile{
@@ -19,5 +19,5 @@
 }
 
 .hidden{
-    display: none;
+    visibility: hidden;
 }
