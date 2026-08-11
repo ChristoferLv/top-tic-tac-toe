@@ -43,12 +43,12 @@ const Game = ((boardRenderer) => {
         const winnerP = document.querySelector(".winner");
 
         const tie = () => {
-            winnerP.innerText = "O jogo empatou!";
+            winnerP.innerText = "The game ended in a draw!";
             winnerP.classList.remove("hidden");
         }
 
         const showWinner = (winnerName) => {
-            winnerP.innerText = "Round vencido por  " + winnerName;
+            winnerP.innerText = "Round won by " + winnerName;
             winnerP.classList.remove("hidden");
         }
 
@@ -68,7 +68,7 @@ const Game = ((boardRenderer) => {
 
         const getPlayerNames = () => {
             if (player1NameInput.value == "" || player2NameInput.value == "") {
-                alert("Digite os nomes dos jogadores");
+                alert("Type the players' names");
                 return;
             }
             return [player1NameInput.value, player2NameInput.value];
