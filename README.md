@@ -1,57 +1,57 @@
 # Tic Tac Toe
 
-Jogo da velha completo desenvolvido como parte da trilha JavaScript do [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-tic-tac-toe), com foco em **organização de código**, **factory functions** e **module pattern**.
+Complete tic-tac-toe game developed as part of the JavaScript path of [The Odin Project](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript), with a focus on **code organization**, **factory functions**, and **module pattern**.
 
-## Objetivo do Projeto
+## Project Objective
 
-O objetivo principal era praticar:
-- Organização de código com Module Pattern e Factory Functions
-- Encapsulamento e separação de responsabilidades
-- Manipulação do DOM de forma estruturada
-- Lógica de jogo (verificação de vitória, empate)
-- Gerenciamento de estado da aplicação
-- Interfaces entre diferentes módulos do código
-- Escopo e closures em JavaScript
+The main objective was to practice:
+- Code organization with Module Pattern and Factory Functions
+- Encapsulation and separation of responsibilities
+- Structured DOM manipulation
+- Game logic (win and draw checking)
+- Application state management
+- Interfaces between different code modules
+- Scope and closures in JavaScript
 
-## O que é?
+## What is it?
 
-Um jogo da velha (tic-tac-toe) totalmente funcional para dois jogadores contendo:
-- Sistema de registro de jogadores com nomes personalizados
-- Tabuleiro interativo 3x3
-- Marcadores X e O para cada jogador
-- Sistema de turnos alternados
-- Detecção automática de vitória
-- Detecção de empate
-- Interface para reiniciar o jogo
+A fully functional tic-tac-toe game for two players containing:
+- Player registration system with custom names
+- Interactive 3x3 board
+- X and O markers for each player
+- Alternating turn system
+- Automatic win detection
+- Draw detection
+- Game reset interface
 
-## Como usar
+## How to use
 
-1. Abra o arquivo `index.html` em seu navegador
-2. Digite os nomes dos dois jogadores nos campos de entrada
-3. Clique em "Começar" para iniciar o jogo
-4. Player 1 (X) e Player 2 (O) clicam alternadamente nas células do tabuleiro
-5. O jogo detecta automaticamente vitória ou empate
-6. Use o botão "Limpar" para reiniciar
+1. Open the `index.html` file in your browser
+2. Enter the names of the two players in the input fields
+3. Click "Start" to start the game
+4. Player 1 (X) and Player 2 (O) click alternately on the board cells
+5. The game automatically detects a win or a draw
+6. Use the "Clear" button to restart
 
-## Funcionalidades
+## Features
 
-- **Sistema de Jogadores**: Registro de nomes personalizados para ambos os jogadores
-- **Tabuleiro Interativo**: Grid 3x3 com células clicáveis
-- **Turnos Alternados**: Sistema automático de alternância entre jogadores
-- **Detecção de Vitória**: Verifica todas as combinações possíveis (linhas, colunas, diagonais)
-- **Detecção de Empate**: Identifica quando o tabuleiro está cheio sem vencedor
-- **Validação de Jogadas**: Impede marcação em células já ocupadas
-- **Interface Dinâmica**: Feedback visual imediato das jogadas
-- **Reset do Jogo**: Permite começar uma nova partida a qualquer momento
+- **Player System**: Custom name registration for both players
+- **Interactive Board**: 3x3 grid with clickable cells
+- **Alternating Turns**: Automatic switching between players
+- **Win Detection**: Checks all possible combinations (rows, columns, diagonals)
+- **Draw Detection**: Identifies when the board is full without a winner
+- **Move Validation**: Prevents marking already occupied cells
+- **Dynamic Interface**: Immediate visual feedback for moves
+- **Game Reset**: Allows starting a new match at any time
 
-## Padrões de Código
+## Code Patterns
 
-- **Module Pattern**: Usado para encapsular funcionalidades e prevenir poluição do escopo global
-- **Factory Functions**: Criação de objetos (jogadores, tabuleiro) sem uso de `new`
-- **Separation of Concerns**: Módulos separados para renderização, lógica do jogo e interface
-- **Closures**: Proteção de variáveis privadas dentro dos módulos
+- **Module Pattern**: Used to encapsulate functionality and prevent global scope pollution
+- **Factory Functions**: Object creation (players, board) without using `new`
+- **Separation of Concerns**: Separate modules for rendering, game logic, and UI
+- **Closures**: Protection of private variables inside modules
 
-## Tecnologias Utilizadas
+## Technologies Used
 
 - HTML5
 - CSS3
@@ -59,6 +59,6 @@ Um jogo da velha (tic-tac-toe) totalmente funcional para dois jogadores contendo
 
 ---
 
-Projeto desenvolvido seguindo: [The Odin Project - Tic Tac Toe](https://www.theodinproject.com/lessons/node-path-javascript-tic-tac-toe)
+Project developed following: [The Odin Project - Tic Tac Toe](https://www.theodinproject.com/lessons/node-path-javascript-tic-tac-toe)
 
-📍 **Repositório principal com todos os projetos**: [ChristoferLv/TheOdinProject](https://github.com/ChristoferLv/TheOdinProject)
+📍 **Main repository with all projects**: [ChristoferLv/TheOdinProject](https://github.com/ChristoferLv/TheOdinProject)
