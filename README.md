@@ -57,6 +57,10 @@ A fully functional tic-tac-toe game for two players containing:
 - CSS3
 - JavaScript (ES6+) - Module Pattern, Factory Functions, Closures
 
+## Visualization
+
+<img width="1910" height="915" alt="tic-tac-toe-screenshot" src="https://github.com/user-attachments/assets/2dd184a1-b74c-43d0-8048-b7ed0dd793c3" />
+
 ---
 
 Project developed following: [The Odin Project - Tic Tac Toe](https://www.theodinproject.com/lessons/node-path-javascript-tic-tac-toe)
